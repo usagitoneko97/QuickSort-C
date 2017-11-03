@@ -3,16 +3,19 @@
 /**
  * sorting a given data array
  * @param data data array
- * @param low  starting index number
- * @param high ending index number
+ * @param low  starting index number to sort
+ * @param high ending index number to sort
  */
 void quickSort(uint8_t data[], int low, int high){
   int pivotIndex;
   //stopping condition is when there is only 1 data after partition
   if(low < high){
+    //seperate array into 2 parts
     pivotIndex = partition(data, low, high);
-    quickSort(data, low, pivotIndex-1);
-    quickSort(data, pivotIndex+1, high);
+    //taking the array of element that are less than pivot
+    quickSort(data, low, pivotIndex - 1);
+    //taking the array of element that are Higher than pivot
+    quickSort(data, pivotIndex + 1, high);
   }
 }
 
@@ -24,19 +27,24 @@ void quickSort(uint8_t data[], int low, int high){
  * @return        index of pivot element
  */
 int partition (uint8_t arr[], int low, int high){
-  int i = low-1;
-  int j=0;
+  //j is moving index to iterate through arr[]
+  int j;
+  //i is index that fills the element(s) smaller than pivot
+  int i = low;
   //pivot taken is the last element
   uint8_t pivot = arr[high];
+
+  //iterate through arr[]
   for(j = low; j<high ; j++){
+    //swap element that is less than pivot with element with i index
     if(arr[j] <= pivot){
-      swap(&arr[++i], &arr[j]);
+      swap(&arr[i++], &arr[j]);
     }
   }
   //placing the pivot
-  swap(&arr[i+1], &arr[high]);
+  swap(&arr[i], &arr[high]);
   //return index of pivot
-  return i+1;
+  return i;
 }
 
 /**
