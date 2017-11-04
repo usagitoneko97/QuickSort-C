@@ -59,6 +59,13 @@ void test_quictSort_NULL_data(void){
   TEST_ASSERT_NULL(data);
 }
 
+void test_quickSort_1_data(void){
+  uint8_t data[] = {1};
+  quickSort(data, 0, 0);
+  TEST_ASSERT_EQUAL_UINT8_ARRAY(data, data, 1);
+
+}
+
 /**
  *   3, 1 -->  1, 3
  */
@@ -78,6 +85,7 @@ void test_quickSort_2_data(void){
  *            ^
  *           pivot
  */
+
 void test_quickSort_5_data(void){
   uint8_t data[] = {1, 3, 5, 2, 6};
   quickSort(data, 0, 4);
