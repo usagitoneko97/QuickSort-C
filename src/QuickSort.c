@@ -6,7 +6,7 @@
  * @param low  starting index number to sort
  * @param high ending index number to sort
  */
-void quickSort(uint8_t data[], int low, int high){
+void quickSort(int data[], int low, int high){
   int pivotIndex;
   //stopping condition is when there is only 1 data after partition
   if(low < high){
@@ -26,13 +26,13 @@ void quickSort(uint8_t data[], int low, int high){
  * @param  high   ending index to partition
  * @return        index of pivot element
  */
-int partition (uint8_t arr[], int low, int high){
+int partition (int arr[], int low, int high){
   //j is moving index to iterate through arr[]
   int j;
   //i is index that fills the element(s) smaller than pivot
   int i = low;
   //pivot taken is the last element
-  uint8_t pivot = arr[high];
+  int pivot = arr[high];
 
   //iterate through arr[]
   for(j = low; j<high ; j++){
@@ -52,8 +52,8 @@ int partition (uint8_t arr[], int low, int high){
  * @param arr1 pointer to first data to swap
  * @param arr2 pointer to second data to swap
  */
-void swap(uint8_t *arr1, uint8_t *arr2){
-  uint8_t temp = *arr1;
+void swap(int *arr1, int *arr2){
+  int temp = *arr1;
   *arr1 = *arr2;
   *arr2 = temp;
 }
